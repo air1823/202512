@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>數學小遊戲</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="bg-numbers" aria-hidden="true"></div>
+
+  <!-- 角色選擇 Modal（首頁啟動） -->
+  <div id="role-modal" class="role-modal" role="dialog" aria-modal="true">
+    <div class="role-card">
+      <h2>請選擇你的身分</h2>
+      <p class="role-sub">選擇後可獲得對應的學習流程</p>
+      <div class="role-actions">
+        <button id="role-student" class="role-btn">我是學生</button>
+        <button id="role-teacher" class="role-btn secondary">我是老師</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="logo">🧸</div>
+    <h1 class="site-title">數學小遊戲</h1>
+    <button id="reset-role" class="role-reset">從頭來過</button>
+  </header>
+
+  <main class="stage">
+    <section id="home" class="panel active">
+      <h2 class="hero-title">數學小課堂</h2>
+
+      <div class="action-row">
+        <button id="btn-videos" class="game-btn">影片教學</button>
+        <button id="btn-play" class="game-btn">開始遊玩</button>
+        <button id="btn-quiz" class="game-btn">隨堂小考</button>
+      </div>
+
+      
+    </section>
+
+    <section id="videos" class="panel">
+      <div class="panel-header"><button class="back-btn">← 回首頁</button><h3>影片教學</h3></div>
+      <div class="video-menu">
+        <button data-cat="basic" class="cat-btn active">數字歌</button>
+        <button data-cat="sub" class="cat-btn">加減法</button>
+        <button data-cat="mul" class="cat-btn">乘法</button>
+      </div>
+      <div id="video-area" class="video-area"></div>
+    </section>
+
+    <section id="play" class="panel">
+      <div class="panel-header"><button class="back-btn">← 回首頁</button><h3>開始遊玩</h3></div>
+      <div class="levels">
+        <div class="level-card" data-mode="add"><h4>加法關卡</h4><p>收集糖果，學會加法。</p></div>
+        <div class="level-card" data-mode="sub"><h4>減法關卡</h4><p>氣球挑戰，體驗減法。</p></div>
+        <div class="level-card" data-mode="mul"><h4>乘法關卡</h4><p>乘法闖關，好好玩。</p></div>
+        <div class="level-card" data-mode="challenge"><h4>闖關賽</h4><p>三個小遊戲連續挑戰，累計成績！</p></div>
+      </div>
+      <div id="game-area" class="game-area"></div>
+    </section>
+
+    <section id="quiz" class="panel">
+      <div class="panel-header"><button class="back-btn">← 回首頁</button><h3>隨堂小考</h3></div>
+      <div class="quiz-panel">
+        <div class="quiz-controls">
+          <label>題型：
+            <select id="quiz-type"><option value="mixed">綜合</option><option value="add">加法</option><option value="sub">減法</option><option value="mul">乘法</option></select>
+          </label>
+          <button id="quiz-start" class="btn-primary">開始小考</button>
+        </div>
+        <div id="quiz-stage" class="quiz-stage"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+          </div>

@@ -1,0 +1,151 @@
+:root{
+  --bg1:#FFF7EE;
+  --card:#FFFDF7;
+  --primary:#FF9AA2;
+  --mint:#BDF2D5;
+  --sky:#CFE9FF;
+  --soft:#FFE5B4;
+  --text:#263238;
+  --muted:#6B7A86;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family: 'Segoe UI', Roboto, 'Noto Sans TC', system-ui, -apple-system; background:linear-gradient(180deg,var(--bg1),#FFF6EE); color:var(--text)}
+
+.site-header{padding:18px 20px;text-align:center}
+.logo{font-size:34px}
+.site-title{margin:6px 0 0;font-size:26px}
+.site-sub{margin:4px 0 8px;color:var(--muted)}
+
+.stage{max-width:1100px;margin:100px auto 20px;padding:24px;display:flex;flex-direction:column;align-items:stretch}
+.panel{display:none;animation:fadeIn .28s ease;}
+.panel.active{display:block}
+
+.hero-title{font-size:40px;text-align:center;margin:14px 0 6px;color:var(--primary)}
+.hero-lead{text-align:center;color:var(--muted);margin:0 0 18px}
+.action-row{display:flex;gap:18px;justify-content:center;margin-top:20px}
+.game-btn{background:linear-gradient(180deg,var(--primary),#FFB6C1);border:none;padding:18px 26px;border-radius:18px;font-size:18px;color:white;cursor:pointer;box-shadow:0 10px 24px rgba(43,58,74,0.12);transition:transform .12s ease,box-shadow .12s ease}
+.game-btn:hover{transform:translateY(-6px)}
+.game-btn:active{transform:translateY(-2px)}
+.home-footer{text-align:center;color:var(--muted);margin-top:18px}
+
+/* role modal */
+.role-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(16,20,24,0.48);z-index:10000}
+.role-card{background:linear-gradient(180deg,#fff,#fff9f0);padding:20px;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,0.28);text-align:center;max-width:420px;width:92%}
+.role-card h2{margin:6px 0 4px;font-size:22px}
+.role-sub{color:var(--muted);margin-bottom:12px}
+.role-actions{display:flex;gap:12px;justify-content:center}
+.role-btn{background:linear-gradient(180deg,var(--primary),#FFB6C1);border:none;padding:14px 18px;border-radius:12px;color:white;font-weight:800;cursor:pointer;font-size:16px}
+.role-btn.secondary{background:#fff;color:#444;border:1px solid #f0e1d2}
+
+/* reset role button in header */
+.role-reset{background:#fff;border:1px solid #f0e1d2;color:#444;padding:6px 10px;border-radius:8px;cursor:pointer;margin-left:12px;font-size:14px}
+
+/* locked UI */
+.locked{opacity:0.42;pointer-events:none;position:relative}
+.locked .lock-icon{position:absolute;right:10px;top:8px;font-size:18px}
+.btn.locked{pointer-events:none;opacity:0.5}
+
+/* small toast for unlock */
+.unlock-toast{position:fixed;left:50%;top:12%;transform:translateX(-50%);background:linear-gradient(90deg,#FFD27F,#FF9AA2);padding:10px 14px;border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,0.18);z-index:11000;color:#222;font-weight:800}
+
+.panel-header{display:flex;align-items:center;gap:12px}
+.panel-header .back-btn{background:#fff;border:0;padding:6px 10px;border-radius:10px;cursor:pointer}
+
+.video-menu{display:flex;gap:10px;margin:12px 0}
+.cat-btn{background:var(--card);border:0;padding:10px 14px;border-radius:12px;cursor:pointer}
+.cat-btn.active{box-shadow:0 8px 20px rgba(0,0,0,0.06);background:linear-gradient(180deg,var(--mint),#E9FFF3)}
+
+.video-area{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;justify-items:center}
+.vcard{background:var(--card);border-radius:12px;padding:10px;box-shadow:0 8px 20px rgba(0,0,0,0.04);max-width:260px;width:100%}
+.video-thumb{position:relative;padding-top:56.25%;border-radius:8px;overflow:hidden;background:#eef}
+.video-thumb img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.play-overlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,0.9);width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 18px rgba(0,0,0,0.08)}
+.vcard h4{margin:8px 0 4px}
+.vcard p{margin:0;color:var(--muted)}
+
+.levels{display:flex;gap:12px;flex-wrap:wrap;margin:10px 0}
+.level-card{background:linear-gradient(180deg,#fff9f0,#fff);padding:14px;border-radius:12px;width:220px;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,0.06)}
+.level-card h4{margin:0 0 6px}
+
+.game-area{margin-top:14px}
+.candies{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px}
+.candy{width:56px;height:56px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:700;cursor:pointer;box-shadow:0 8px 16px rgba(0,0,0,0.08);transition:transform .12s ease,opacity .12s}
+.candy.selected{box-shadow:0 12px 22px rgba(0,0,0,0.14);transform:translateY(6px) scale(.95);opacity:.28}
+.candy.red{background:#ff7b9c}
+.candy.blue{background:#7fd3ff;color:#034}
+.candy.yellow{background:#ffd07a;color:#333}
+.basket{width:160px;height:60px;border-radius:12px;border:2px dashed #ffd27f;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+.quiz-panel{padding:12px}
+.quiz-stage{margin-top:12px}
+/* quiz layout: stage + history */
+.quiz-panel{display:flex;gap:12px}
+.quiz-stage{flex:1}
+.quiz-history{width:240px;background:linear-gradient(180deg,#fff,#fff9f0);padding:10px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.04);font-size:14px}
+.quiz-history h4{margin:0 0 8px;font-size:16px}
+.attempt-item{padding:8px;border-radius:8px;margin-bottom:8px;background:#fff;border:1px solid #f3e6d9}
+.attempt-item small{color:var(--muted);display:block;margin-top:6px}
+
+/* red X for wrong answers */
+.x-mark{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font-size:64px;color:#e15241;opacity:0;transition:opacity .18s ease,transform .3s ease}
+.x-mark.show{opacity:1;transform:translate(-50%,-50%) scale(1.05)}
+
+/* big banner tweak */
+.big-banner{pointer-events:none}
+.question-box{background:linear-gradient(180deg,#fff7ea,#fff);padding:18px;border-radius:10px;font-size:28px;text-align:center;margin-bottom:12px}
+.answer-row{display:flex;gap:8px;align-items:center;justify-content:center}
+.btn-primary{background:#6ecb8f;border:none;color:white;padding:10px 14px;border-radius:10px;cursor:pointer}
+
+/* secondary button (used for clear history and other subtle actions) */
+.btn-secondary{background:#fff;border:1px solid #e6d6c6;color:#333;padding:8px 12px;border-radius:10px;cursor:pointer}
+.btn-secondary:disabled{opacity:0.5;cursor:not-allowed}
+
+/* background digits */
+#bg-numbers{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.bg-digit{position:absolute;font-size:56px;opacity:.08;transform-origin:center center;transition:transform .22s cubic-bezier(.2,.9,.3,1),opacity .18s;pointer-events:none;user-select:none}
+
+/* 互動僅在首頁啟用：當 body 有 .home-active 時才允許 hover/click 效果 */
+body.home-active .bg-digit{pointer-events:auto}
+body.home-active .bg-digit:hover, body.home-active .bg-digit:focus{transform:translateY(-12px) scale(1.36);opacity:.28}
+
+/* click/tap 動畫：更明顯的旋轉 + 縮放 + 回彈，但保持輕量 */
+body.home-active .bg-digit.bg-click{animation:bgClick 520ms ease both;z-index:800}
+@keyframes bgClick{
+  0%{transform:translateY(0) scale(1) rotate(0)}
+  28%{transform:translateY(-18px) scale(1.32) rotate(28deg)}
+  62%{transform:translateY(6px) scale(0.92) rotate(-12deg)}
+ 100%{transform:translateY(0) scale(1) rotate(0)}
+}
+
+/* 立即回饋：按下時 (active) 給予小幅旋轉與縮放，感覺更即時 */
+body.home-active .bg-digit:active{
+  transform:translateY(-14px) scale(1.36) rotate(18deg);
+  transition:transform 120ms ease;
+}
+
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+@media(max-width:720px){.hero-title{font-size:28px}.action-row{flex-direction:column}.levels{justify-content:center}.level-card{width:86vw}}
+@media(max-width:720px){.quiz-panel{flex-direction:column}.quiz-history{width:100%}}
+
+/* balloon pop and confetti */
+.balloon-row{display:flex;gap:10px;justify-content:center;align-items:flex-end;padding:12px}
+.balloon{width:56px;height:74px;border-radius:28px;background:linear-gradient(180deg,#ff9fb6,#ff6f96);position:relative;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;cursor:pointer;transition:transform .28s ease,opacity .28s ease}
+.balloon.popped{transform:scale(0.25) translateY(-40px) rotate(-25deg);opacity:0;pointer-events:none}
+
+.celebrate-area{position:relative}
+.confetti-piece{position:absolute;width:10px;height:8px;border-radius:2px;opacity:0;animation:confetti 900ms forwards}
+@keyframes confetti{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(180px) rotate(360deg)}}
+
+.encouragement{animation:popIn .36s ease; font-weight:800; color:var(--primary); font-size:18px; text-align:center; margin-top:8px}
+@keyframes popIn{0%{opacity:0;transform:scale(.9)}100%{opacity:1;transform:none}}
+
+/* whiteboard style for clear problem display */
+.whiteboard{background:linear-gradient(180deg,#fff,#fff9e6);border:3px dashed rgba(0,0,0,0.06);padding:12px;border-radius:12px;font-size:22px;text-align:center;font-weight:700;color:var(--text);box-shadow:inset 0 2px 0 rgba(255,255,255,0.6)}
+.refresh-btn{background:#fff;border:1px solid #ffd27f;padding:8px 10px;border-radius:10px;cursor:pointer;margin-left:8px}
+.controls-row{display:flex;gap:8px;align-items:center;justify-content:center}
+
+
